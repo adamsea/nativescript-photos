@@ -1,5 +1,11 @@
 {
 	"nativescript": {
-		"id": "org.studioconnect.photos"
+		"id": "org.studioconnect.photos",
+		"tns-ios": {
+			"version": "1.2.0"
+		},
+		"tns-android": {
+			"version": "1.2.0"
+		}
 	}
 }
