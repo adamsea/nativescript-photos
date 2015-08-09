@@ -1,27 +1,22 @@
-var __extends = this.__extends || function (d, b) {
+var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
     d.prototype = new __();
 };
 var observable = require("data/observable");
-var HelloWorldModel = (function (_super) {
-    __extends(HelloWorldModel, _super);
-    function HelloWorldModel() {
+var observableArray = require("data/observable-array");
+var PhotoViewModel = (function (_super) {
+    __extends(PhotoViewModel, _super);
+    function PhotoViewModel() {
         _super.call(this);
-        this.counter = 42;
-        this.set("message", this.counter + " taps left");
+        this.photos = new observableArray.ObservableArray([{ title: 'Test Title 1' }, { title: 'Test Title 2' }]);
+        this.set("photos", this.photos);
     }
-    HelloWorldModel.prototype.tapAction = function () {
-        this.counter--;
-        if (this.counter <= 0) {
-            this.set("message", "Hoorraaay! You unlocked the NativeScript clicker achievement!");
-        }
-        else {
-            this.set("message", this.counter + " taps left");
-        }
+    PhotoViewModel.prototype.takePhoto = function () {
+        console.log('photo taken!');
     };
-    return HelloWorldModel;
+    return PhotoViewModel;
 })(observable.Observable);
-exports.HelloWorldModel = HelloWorldModel;
-exports.mainViewModel = new HelloWorldModel();
+exports.PhotoViewModel = PhotoViewModel;
+exports.photoViewModel = new PhotoViewModel();

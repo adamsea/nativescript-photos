@@ -1,20 +1,19 @@
 {
-    "name": "tns-template-hello-world-ts",
-    "main": "app.js",
-    "version": "1.1.0",
-    "author": "Telerik <support@telerik.com>",
-    "description": "Nativescript hello-world-ts project template",
-    "license": "BSD",
-    "keywords": [
-        "telerik",
-        "mobile",
-        "nativescript",
-        "{N}",
-        "tns",
-        "appbuilder",
-        "template"
-    ],
-    "repository": {
-        "url": "https://github.com/NativeScript/NativeScript/commit/ffc1fcb030cd77e8b630e0f3ef3cf3694e36be43"
-    }
+  "name": "nativescript-photos",
+  "main": "app.js",
+  "version": "1.1.0",
+  "author": "Eric Adams <adams.ea@gmail.com>",
+  "description": "Nativescript Photo Browser App",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "mobile",
+    "nativescript"
+  ],
+  "repository": {
+    "url": "https://github.com/adamsea/nativescript-photos.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {}
 }

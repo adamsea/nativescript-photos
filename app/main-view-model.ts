@@ -1,41 +1,16 @@
 import observable = require("data/observable");
+import observableArray = require("data/observable-array");
 
-export class HelloWorldModel extends observable.Observable {
-    private counter: number;
+export class PhotoViewModel extends observable.Observable {
+    photos: observableArray.ObservableArray<Object> = new observableArray.ObservableArray([{title: 'Test Title 1'}, {title: 'Test Title 2'}]);
+
     constructor() {
         super();
-
-        // Initialize default values.
-        this.counter = 42;
-        this.set("message", this.counter + " taps left");
+        this.set("photos", this.photos);
     }
 
-    public tapAction() {
-        this.counter--;
-        if (this.counter <= 0) {
-            this.set("message", "Hoorraaay! You unlocked the NativeScript clicker achievement!");
-        }
-        else {
-            this.set("message", this.counter + " taps left")
-        }
+    takePhoto() {
+        console.log('photo taken!');
     }
 }
-export var mainViewModel = new HelloWorldModel();
-
-// Equivalent JS code:
-//var observable = require("data/observable");
-//
-//var counter = 42;
-//
-//var mainViewModel = new observable.Observable();
-//mainViewModel.set("message", counter + " taps left");
-//mainViewModel.tapAction = function () {
-//    counter--;
-//    if (counter <= 0) {
-//        mainViewModel.set("message", "Hoorraaay! You unlocked the NativeScript clicker achievement!");
-//    }
-//    else {
-//        mainViewModel.set("message", counter + " taps left");
-//    }
-//};
-//exports.mainViewModel = mainViewModel;
+export var photoViewModel = new PhotoViewModel();
