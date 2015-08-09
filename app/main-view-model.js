@@ -10,11 +10,12 @@ var PhotoViewModel = (function (_super) {
     __extends(PhotoViewModel, _super);
     function PhotoViewModel() {
         _super.call(this);
-        this.photos = new observableArray.ObservableArray([{ title: 'Test Title 1' }, { title: 'Test Title 2' }]);
+        this.counter = 1;
+        this.photos = new observableArray.ObservableArray([]);
         this.set("photos", this.photos);
     }
     PhotoViewModel.prototype.takePhoto = function () {
-        console.log('photo taken!');
+        this.photos.push({ title: 'Test Layout ' + this.counter++, src: 'http://aidsresearch.org/images/uploads/Stock_Gift_Pix.jpg' });
     };
     return PhotoViewModel;
 })(observable.Observable);

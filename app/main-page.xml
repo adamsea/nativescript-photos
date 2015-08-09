@@ -1,10 +1,13 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
-    <StackLayout orientation="vertical">
-        <Button tap="takePhoto" text="Take a Photo" />
-        <ListView id="listview" items="{{ photos }}">
+    <GridLayout rows="auto, *">
+        <Button tap="{{ takePhoto }}" text="Take a Photo" cssClass="message" row="0" />
+        <ListView id="photolist" items="{{ photos }}" row="1">
             <ListView.itemTemplate>
-                <Label text="{{ title }}" />
+                <StackLayout orientation="horizontal">
+                    <Label text="{{ title }}" />
+                    <Image cssClass="thumbnail" src="{{ src }}" stretch="aspectFill" />
+                </StackLayout>
             </ListView.itemTemplate>
         </ListView>
-    </StackLayout>
+    </GridLayout>
 </Page>
