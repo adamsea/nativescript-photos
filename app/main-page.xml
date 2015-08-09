@@ -5,7 +5,7 @@
             <ListView.itemTemplate>
                 <StackLayout orientation="horizontal">
                     <Label text="{{ title }}" />
-                    <Image cssClass="thumbnail" src="{{ src }}" stretch="aspectFill" />
+                    <Image cssClass="thumbnail" imageSource="{{ src }}" stretch="aspectFill" />
                 </StackLayout>
             </ListView.itemTemplate>
         </ListView>

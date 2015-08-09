@@ -6,6 +6,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var observable = require("data/observable");
 var observableArray = require("data/observable-array");
+var camera = require("camera");
 var PhotoViewModel = (function (_super) {
     __extends(PhotoViewModel, _super);
     function PhotoViewModel() {
@@ -15,7 +16,14 @@ var PhotoViewModel = (function (_super) {
         this.set("photos", this.photos);
     }
     PhotoViewModel.prototype.takePhoto = function () {
-        this.photos.push({ title: 'Test Layout ' + this.counter++, src: 'http://aidsresearch.org/images/uploads/Stock_Gift_Pix.jpg' });
+        var _this = this;
+        camera.takePicture({ width: 300, height: 300, keepAspectRatio: true }).then(function (capture) {
+            var photo = {
+                title: 'Photo ' + _this.counter++,
+                src: capture
+            };
+            _this.photos.push(photo);
+        });
     };
     return PhotoViewModel;
 })(observable.Observable);

@@ -13,15 +13,13 @@ export class PhotoViewModel extends observable.Observable {
     }
 
     public takePhoto() {
-        this.photos.push({title: 'Test Layout ' + this.counter++, src: 'http://aidsresearch.org/images/uploads/Stock_Gift_Pix.jpg'});
-        // camera.takePicture({keepAspectRatio: true}).then((capture: imageSource.ImageSource) => {
-        //     let src = capture.toBase64String('image/jpeg');
-        //     let photo = {
-        //         title: 'Photo ' + this.counter++,
-        //         src: src
-        //     };
-        //     this.photos.push(photo);
-        // });
+        camera.takePicture({width: 300, height: 300, keepAspectRatio: true}).then((capture: imageSource.ImageSource) => {
+            let photo = {
+                title: 'Photo ' + this.counter++,
+                src: capture
+            };
+            this.photos.push(photo);
+        });
     }
 }
 export var photoViewModel = new PhotoViewModel();
